@@ -2,7 +2,7 @@ import java.util.*;
 public class BonusBody {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int salary = 0;
+        double salary = 0;
         System.out.print("Please insert your name : ");
         String name = input.nextLine();
         System.out.print("Please insert your age : ");
