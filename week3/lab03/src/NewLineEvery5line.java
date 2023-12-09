@@ -5,7 +5,7 @@ public class NewLineEvery5line {
         System.out.print("Please insert a number : ");
         int line = input.nextInt();
         for (int i = 1; i <= line; i++) {
-            System.out.print((i%5 != 0 ? "|" : "\n"));
-        }
+            System.out.print((i%5 != 0 ? "|" : "|\n"));
+        }System.out.println();
     }
 }
