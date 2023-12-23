@@ -3,7 +3,7 @@ public class Book {
     public int yearPublished;
     public double price;
     public boolean isAvailable;
-    public void printdetails(){
+    public void printDetails(){
         System.out.println("Title: " + title);
         System.out.println("Author: " + author);
         System.out.println("Publisher: " + publisher);

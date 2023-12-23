@@ -8,11 +8,11 @@ public class Lab4Test4 {
         book1.isAvailable = false;
         book1.author = "John Smith";
         
-        book1.printdetails();
+        book1.printDetails();
         System.out.println("-------------");
         book1.updatePrice(250);
         book1.markAsAvailable();
-        book1.printdetails();
+        book1.printDetails();
         System.out.println(book1.isPublishedAfter(2000));
     }
 }
