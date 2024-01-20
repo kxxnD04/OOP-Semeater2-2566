@@ -1,3 +1,3 @@
 public abstract class Item {
-    public abstract void use(Player p);
+    public abstract void use(Player P);
 }

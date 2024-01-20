@@ -31,8 +31,9 @@ public class Employee {
         energy += f.getEnergy();
     }
     public boolean buyFood(Seller s){
-        if (s != null){
-            this.eat(s.sell(this));
+        Food f = s.sell(this);
+        if (f != null){
+            this.eat(f);
             return true;
         }else{
             return false;
