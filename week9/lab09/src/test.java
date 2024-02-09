@@ -7,10 +7,8 @@
  *
  * @author Victus
  */
-public class main {
-        public static void main(String[] args) {
-          int x = 5;
-          int y = --x+2*3+x++*2;
-            System.out.println(y);
+public class test {
+    public static void main(String[] args) {
+        double d = 3.89;
     }
- }
+}

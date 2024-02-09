@@ -60,7 +60,7 @@ public class Player {
         }
     }
     public void protectFromPlayer(Player target){
-        if (houses.getName().equals("Gryffindor")){
+        if (houses.getClass() == Gryffindor.class){
             ((Gryffindor)this.houses).defense(this, target);
         }else{
             ((Hufflepuff)this.houses).defense(this, target);
