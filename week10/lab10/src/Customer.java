@@ -43,7 +43,7 @@ public class Customer {
 //    }
 //    @Override
 //    public String toString(){
-//        return firstName + " " + lastName + (numOfAccount > 1 ? " have ": " has ") + numOfAccount + (numOfAccount > 1 ? " accounts.": " account.");
+//        return firstName + " " + lastName + " has " + numOfAccount + (numOfAccount > 1 ? " accounts.": " account.");
 //    }
 //    public Account getAccount(int index){
 //        return acct[index];
@@ -87,7 +87,7 @@ public class Customer {
     }
     @Override
     public String toString(){
-        return firstName + " " + lastName + (acct.size() > 1 ? " have ": " has ") + acct.size() + (acct.size() > 1 ? " accounts.": " account.");
+        return firstName + " " + lastName + " has " + acct.size() + (acct.size() > 1 ? " accounts.": " account.");
     }
     public Account getAccount(int index){
         return (Account) acct.get(index);
