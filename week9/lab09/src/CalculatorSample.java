@@ -92,11 +92,25 @@ public class CalculatorSample implements ActionListener{
         }else if((j.getText().equals("+") || j.getText().equals("-") || 
                 j.getText().equals("x") || j.getText().equals("/")) ) {
             if (!text.getText().equals("")){
+                if (checknum1 == true & checknum2 == false){
+                    num2 = Double.parseDouble(text.getText());
+                    if(operator.equals("+")){
+                        num1 = (1.0*num1) + num2;
+                    }else if(operator.equals("-")){
+                        num1 = (1.0*num1) - num2;
+                    }else if(operator.equals("x")){
+                        num1 = (1.0*num1)*num2;
+                    }else if(operator.equals("/")){
+                        num1 = (1.0*num1)/num2;}
+                    operator = j.getText();
+                }else{
                 num1 = Double.parseDouble(text.getText());
                 checknum1 = true;
-                operator = j.getText();                
-            }
+                operator = j.getText();
+                }
+                }
             text.setText("");
+
         }else if (j.getText().equals("=")){           
             if (!text.getText().equals("")){
                 num2 = Double.parseDouble(text.getText());
