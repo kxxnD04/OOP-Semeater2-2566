@@ -33,7 +33,7 @@ public class MyTimer extends JLabel implements Runnable{
                 setFont(f);
                 setText(String.format("%02d:%02d:%02d", hour, min, sec));
                 sec++;
-                Thread.sleep(1000);                   
+                Thread.sleep(10);                   
                 }
 
         }catch (InterruptedException ex) {
