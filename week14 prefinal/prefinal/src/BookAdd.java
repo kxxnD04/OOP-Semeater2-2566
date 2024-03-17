@@ -44,7 +44,7 @@ public class BookAdd implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         ManageBook =  new Book(showName.getText(), Double.valueOf(showPrice.getText()), (String)comboType.getSelectedItem());
-        JOptionPane.showMessageDialog(null, "Done it");
+        JOptionPane.showMessageDialog(null, "Done it", "Add New Book", JOptionPane.INFORMATION_MESSAGE);
         bookview.addBook(ManageBook);
         bookview.updateWhenInsert();
         frame.dispose();

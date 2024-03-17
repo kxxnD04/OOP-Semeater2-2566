@@ -93,7 +93,7 @@ public class BookView implements ActionListener, WindowListener{
                 bookStore.get(Integer.parseInt(showIndex.getText())).setName(showName.getText());
                 bookStore.get(Integer.parseInt(showIndex.getText())).setPrice(Double.valueOf(showPrice.getText()));
                 bookStore.get(Integer.parseInt(showIndex.getText())).setType((String)comboType.getSelectedItem());
-                JOptionPane.showMessageDialog(null, "Done it");
+                JOptionPane.showMessageDialog(null, "Done it", "Update Command", JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception exc) {}
         }else if(e.getSource().equals(delete)){
             if (Integer.parseInt(showIndex.getText()) != 0){    
@@ -116,7 +116,7 @@ public class BookView implements ActionListener, WindowListener{
                     bookStore.remove(Integer.parseInt(showIndex.getText()));
                 }  
             }
-            JOptionPane.showMessageDialog(null, "Done it");            
+            JOptionPane.showMessageDialog(null, "Done it", "Delete Command", JOptionPane.INFORMATION_MESSAGE);            
         }else if(e.getSource().equals(goBack)){
             if(Integer.parseInt(showIndex.getText()) != 0){
 
