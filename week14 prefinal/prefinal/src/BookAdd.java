@@ -37,8 +37,8 @@ public class BookAdd implements ActionListener{
         frame.add(pa1, BorderLayout.NORTH);
         frame.add(pa2, BorderLayout.CENTER);
         frame.pack();
-        frame.setLocation(400, 200);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocation(500, 500);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setVisible(true);
     }
     @Override

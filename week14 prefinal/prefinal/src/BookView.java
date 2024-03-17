@@ -70,16 +70,12 @@ public class BookView implements ActionListener, WindowListener{
         bookStore.add(b);
     }
     public int checkIndex(String type){
-        switch (type) {
-            case "General":
-                return 0;
-            case "Computer":
-                return 1;
-            case "Math&Sci":
-                return 2;
-            default:
-                return 3;
-        }
+        return switch (type) {
+            case "General" -> 0;
+            case "Computer" -> 1;
+            case "Math&Sci" -> 2;
+            default -> 3;
+        };
     }
     public void updateWhenInsert(){
         Book b = bookStore.get(bookStore.size()-1);
@@ -148,10 +144,8 @@ public class BookView implements ActionListener, WindowListener{
                 showName.setText(bookStore.get(0).getName());
                 showPrice.setText(String.valueOf(bookStore.get(0).getPrice()));
                 comboType.setSelectedIndex(checkIndex(bookStore.get(0).getType()));
-                System.out.println(bookStore);
             }catch(Exception ex){ex.printStackTrace();}
         }
-         System.out.println(bookStore);
     }
 
     @Override
@@ -160,33 +154,17 @@ public class BookView implements ActionListener, WindowListener{
             try(FileOutputStream f = new FileOutputStream("Book.data");
             ObjectOutputStream fout = new ObjectOutputStream(f);) {
             fout.writeObject(bookStore);
-            }catch(Exception ex){
-            }
-            System.out.println(bookStore);
+            }catch(Exception ex){ex.printStackTrace();}
         }
     }
-
     @Override
-    public void windowClosed(WindowEvent e) {
-    }
-
+    public void windowClosed(WindowEvent e) {}
     @Override
-    public void windowIconified(WindowEvent e) {
-
-    }
-
+    public void windowIconified(WindowEvent e) {}
     @Override
-    public void windowDeiconified(WindowEvent e) {
-
-    }
-
+    public void windowDeiconified(WindowEvent e) {}
     @Override
-    public void windowActivated(WindowEvent e) {
-
-    }
-
+    public void windowActivated(WindowEvent e) {}
     @Override
-    public void windowDeactivated(WindowEvent e) {
-
-    }
+    public void windowDeactivated(WindowEvent e) {}
 }
