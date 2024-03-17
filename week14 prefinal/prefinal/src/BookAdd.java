@@ -49,5 +49,4 @@ public class BookAdd implements ActionListener{
         bookview.updateWhenInsert();
         frame.dispose();
     }
-    
 }

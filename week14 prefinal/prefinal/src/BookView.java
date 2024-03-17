@@ -81,7 +81,7 @@ public class BookView implements ActionListener, WindowListener{
         Book b = bookStore.get(bookStore.size()-1);
         showName.setText(b.getName());
         showPrice.setText(String.valueOf(b.getPrice()));
-        showIndex.setText(String.valueOf(bookStore.size()-1));
+        showIndex.setText(String.valueOf(bookStore.size()));
         comboType.setSelectedIndex(checkIndex(b.getType()));
     }
     @Override
@@ -96,45 +96,45 @@ public class BookView implements ActionListener, WindowListener{
                 JOptionPane.showMessageDialog(null, "Done it", "Update Command", JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception exc) {}
         }else if(e.getSource().equals(delete)){
-            if (Integer.parseInt(showIndex.getText()) != 0){    
-                bookStore.remove(Integer.parseInt(showIndex.getText()));
-                showName.setText(bookStore.get(Integer.parseInt(showIndex.getText()) - 1).getName());
-                showPrice.setText(String.valueOf(bookStore.get(Integer.parseInt(showIndex.getText())-1).getPrice()));
-                comboType.setSelectedIndex(checkIndex(bookStore.get(Integer.parseInt(showIndex.getText()) - 1).getType()));
+            if (Integer.parseInt(showIndex.getText()) > 1){    
+                showName.setText(bookStore.get(Integer.parseInt(showIndex.getText()) - 2).getName());
+                showPrice.setText(String.valueOf(bookStore.get(Integer.parseInt(showIndex.getText())-2).getPrice()));
+                comboType.setSelectedIndex(checkIndex(bookStore.get(Integer.parseInt(showIndex.getText()) - 2).getType()));
                 showIndex.setText(String.valueOf(Integer.parseInt(showIndex.getText()) - 1));
-            } else if (Integer.parseInt(showIndex.getText()) == 0){
+                bookStore.remove(Integer.parseInt(showIndex.getText()));
+            } else if (Integer.parseInt(showIndex.getText()) == 1){
                 if (bookStore.size() == 1){
-                    bookStore.remove(Integer.parseInt(showIndex.getText()));
+                    bookStore.remove(Integer.parseInt(showIndex.getText()) - 1);
                     showName.setText("");
                     showPrice.setText("");
                     comboType.setSelectedIndex(0);     
+                    showIndex.setText("0");
                 }else if (bookStore.size() > 1){
-                    showName.setText(bookStore.get(Integer.parseInt(showIndex.getText()) + 1).getName());
-                    showPrice.setText(String.valueOf(bookStore.get(Integer.parseInt(showIndex.getText())+1).getPrice()));
-                    comboType.setSelectedIndex(checkIndex(bookStore.get(Integer.parseInt(showIndex.getText()) + 1).getType()));                
-                    showIndex.setText(String.valueOf(Integer.parseInt(showIndex.getText()) ));
+                    showName.setText(bookStore.get(Integer.parseInt(showIndex.getText())).getName());
+                    showPrice.setText(String.valueOf(bookStore.get(Integer.parseInt(showIndex.getText())).getPrice()));
+                    comboType.setSelectedIndex(checkIndex(bookStore.get(Integer.parseInt(showIndex.getText())).getType()));                
+                    showIndex.setText(String.valueOf(Integer.parseInt(showIndex.getText())));       
                     bookStore.remove(Integer.parseInt(showIndex.getText()));
                 }  
             }
             JOptionPane.showMessageDialog(null, "Done it", "Delete Command", JOptionPane.INFORMATION_MESSAGE);            
         }else if(e.getSource().equals(goBack)){
-            if(Integer.parseInt(showIndex.getText()) != 0){
+            if(Integer.parseInt(showIndex.getText()) > 1){
 
-                showName.setText(bookStore.get(Integer.parseInt(showIndex.getText()) - 1).getName());
-                showPrice.setText(String.valueOf(bookStore.get(Integer.parseInt(showIndex.getText())-1).getPrice()));
-                comboType.setSelectedIndex(checkIndex(bookStore.get(Integer.parseInt(showIndex.getText()) - 1).getType()));
+                showName.setText(bookStore.get(Integer.parseInt(showIndex.getText()) - 2).getName());
+                showPrice.setText(String.valueOf(bookStore.get(Integer.parseInt(showIndex.getText())-2).getPrice()));
+                comboType.setSelectedIndex(checkIndex(bookStore.get(Integer.parseInt(showIndex.getText()) - 2).getType()));
                 showIndex.setText(String.valueOf(Integer.parseInt(showIndex.getText()) - 1));                
             }
         }else if(e.getSource().equals(goNext)){
-            if(Integer.parseInt(showIndex.getText()) < bookStore.size() - 1){
-                showName.setText(bookStore.get(Integer.parseInt(showIndex.getText()) + 1).getName());
-                showPrice.setText(String.valueOf(bookStore.get(Integer.parseInt(showIndex.getText())+1).getPrice()));
-                comboType.setSelectedIndex(checkIndex(bookStore.get(Integer.parseInt(showIndex.getText()) + 1).getType()));                
+            if(Integer.parseInt(showIndex.getText()) < bookStore.size() ){
+                showName.setText(bookStore.get(Integer.parseInt(showIndex.getText())).getName());
+                showPrice.setText(String.valueOf(bookStore.get(Integer.parseInt(showIndex.getText())).getPrice()));
+                comboType.setSelectedIndex(checkIndex(bookStore.get(Integer.parseInt(showIndex.getText())).getType()));                
                 showIndex.setText(String.valueOf(Integer.parseInt(showIndex.getText()) +1));                
             }
         }
     }
-
     @Override
     public void windowOpened(WindowEvent e) {
         if (new File("Book.data").exists()){
@@ -144,6 +144,7 @@ public class BookView implements ActionListener, WindowListener{
                 showName.setText(bookStore.get(0).getName());
                 showPrice.setText(String.valueOf(bookStore.get(0).getPrice()));
                 comboType.setSelectedIndex(checkIndex(bookStore.get(0).getType()));
+                showIndex.setText("1");
             }catch(Exception ex){ex.printStackTrace();}
         }
     }
