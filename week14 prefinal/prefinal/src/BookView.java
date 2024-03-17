@@ -90,19 +90,22 @@ public class BookView implements ActionListener, WindowListener{
             new BookAdd(this);
         }else if(e.getSource().equals(update)){
             try {
+                if(Integer.parseInt(showIndex.getText()) != 0){
                 bookStore.get(Integer.parseInt(showIndex.getText())).setName(showName.getText());
                 bookStore.get(Integer.parseInt(showIndex.getText())).setPrice(Double.valueOf(showPrice.getText()));
                 bookStore.get(Integer.parseInt(showIndex.getText())).setType((String)comboType.getSelectedItem());
                 JOptionPane.showMessageDialog(null, "Done it", "Update Command", JOptionPane.INFORMATION_MESSAGE);
-            } catch (Exception exc) {}
+              }
+            } catch (Exception ex) {ex.printStackTrace();}
         }else if(e.getSource().equals(delete)){
+            if (Integer.parseInt(showIndex.getText()) != 0){            
             if (Integer.parseInt(showIndex.getText()) > 1){    
                 showName.setText(bookStore.get(Integer.parseInt(showIndex.getText()) - 2).getName());
                 showPrice.setText(String.valueOf(bookStore.get(Integer.parseInt(showIndex.getText())-2).getPrice()));
                 comboType.setSelectedIndex(checkIndex(bookStore.get(Integer.parseInt(showIndex.getText()) - 2).getType()));
                 showIndex.setText(String.valueOf(Integer.parseInt(showIndex.getText()) - 1));
                 bookStore.remove(Integer.parseInt(showIndex.getText()));
-            } else if (Integer.parseInt(showIndex.getText()) == 1){
+            }else if (Integer.parseInt(showIndex.getText()) == 1){
                 if (bookStore.size() == 1){
                     bookStore.remove(Integer.parseInt(showIndex.getText()) - 1);
                     showName.setText("");
@@ -117,7 +120,8 @@ public class BookView implements ActionListener, WindowListener{
                     bookStore.remove(Integer.parseInt(showIndex.getText()));
                 }  
             }
-            JOptionPane.showMessageDialog(null, "Done it", "Delete Command", JOptionPane.INFORMATION_MESSAGE);            
+            JOptionPane.showMessageDialog(null, "Done it", "Delete Command", JOptionPane.INFORMATION_MESSAGE);       
+            }
         }else if(e.getSource().equals(goBack)){
             if(Integer.parseInt(showIndex.getText()) > 1){
 
